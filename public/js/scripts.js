@@ -1,3 +1,27 @@
+const login = function (e) {
+  e.preventDefault()
+  const username = document.getElementById('username').value,
+        password = document.getElementById('password').value
+  const user = {
+    'username': username,
+    'password': password
+  }
+  fetch( '/login', {
+      method:'POST',
+      body:JSON.stringify(user),
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then( res => res.json() )
+    .then( console.log )
+  /*fetch('/login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body
+  }).then(function (response) {
+    console.log(response)
+  })*/
+}
+
 const submit = function (e) {
 
     e.preventDefault()

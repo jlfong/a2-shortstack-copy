@@ -49,10 +49,10 @@ const myLocalStrategy = function( username, password, done ) {
 passport.use( new Local( myLocalStrategy ) )
 passport.initialize()
 
-app.post( '/login',
-  passport.authenticate( 'local' ),
-  function( req, res ) {
-    console.log( 'user:', req.user )
+app.post( '/login', passport.authenticate( 'local' ), function( req, res ) {
+    var data = req.body
+    console.log(data)
+    //console.log( 'user:', req.username )
     res.json({ status:true })
   }
 )
