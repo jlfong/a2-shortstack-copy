@@ -13,6 +13,18 @@ const http = require('http'),
     dir = 'public/',
     port = 3000
 
+const low = require('lowdb')
+const FileSync = require('lowdb/adapters/FileSync')
+ 
+const adapter = new FileSync('db.json')
+const db = low( adapter )
+
+db.defaults({ appdata:[] }).write()
+
+app.use(express.static(dir));
+app.use(bodyParser.json());
+
+
 app.use( express.static(dir) )
 app.use(passport.initialize())
 app.use( bodyParser.json() )
