@@ -21,7 +21,14 @@ app.get('/studentData', (req, res) => {
   res.send('Hello World!');
 });
 
-app.listen( process.env.PORT || 3000 )
+app.post('/submit', function(req, res) {
+    var ingredient = req.body;
+    console.log(req.body);
+    appdata.push(ingredient);
+    res.status(200).send("Successfully posted ingredient");
+});
+
+app.listen( process.env.PORT || port )
 
 const appdata = [
     {
