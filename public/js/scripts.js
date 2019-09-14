@@ -18,6 +18,15 @@ const login = function (e) {
     method: 'POST',
     headers: { 'Content-Type': 'application/json'},
     body
+  }).then(function (response) {
+    if(response.status === 200) {
+      document.getElementById('loginform').style.display = "none"
+      document.getElementById('maindisplay').style.display = ""
+    }
+    else {
+      console.log('here')
+      document.getElementById('error').style.display = ""
+    }
   })
   /*fetch('/login', {
     method: 'POST',

@@ -6,7 +6,7 @@
     <link href="/css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-  <form action="/" method="post">
+  <form id="loginform" action="/" method="post">
           <div>
             <label>Username:</label>
             <input id="username" type="text" name="username" />
@@ -20,7 +20,8 @@
           <button id="loginButton">Login</button>
         </div>
       </form>
-<div class="twocolumn" style="display: none">
+  <div id="loginerror" style="display: none">**Incorrect username or password**</div>
+<div id="maindisplay" class="twocolumn" style="display: none">
     <div class="container">
         <h1>Create a Harry Potter Character</h1>
         <p>Disclaimer: The Harry Potter universe belongs to J.K. Rowling</p>

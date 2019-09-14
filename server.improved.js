@@ -56,7 +56,7 @@ app.post('/login',
     passport.authenticate('local-login', {
         // redirect back to /login
         // if login fails
-        failureRedirect: '/error'
+        //failureRedirect: '/error'
     }),
  
     // end up at / if login works
@@ -68,7 +68,6 @@ app.post('/login',
 
 app.get('/error', function(req, res) {
   console.log('login error')
-  res.send(appdata)
 })
 
 app.get('/login', function(req, res) {
