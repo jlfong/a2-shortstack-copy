@@ -131,11 +131,14 @@ app.post('/submit', function(req, res) {
 });
 
 app.post('/update', function(req, res) {
-  var data = req.body
+  const index = req.body.rowData,
+        indexVal = db.get('appData['+index+']').value()
+  db.get('appdata').assign()
+  /*var data = req.body
   let index = data.index
   appdata[index].firstName = data.firstName
   appdata[index].lastName = data.lastName
-  appdata[index].house = data.house
+  appdata[index].house = data.house*/
   res.status(200).send("updated")
 })
 
