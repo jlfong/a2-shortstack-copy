@@ -43,6 +43,21 @@ app.post('/submit', function(req, res) {
     res.status(200).send("Successfully posted ingredient");
 });
 
+app.post('/update', function(req, res) {
+  var data = req.body
+  let index = data.index
+  appdata[index].firstName = data.firstName
+  appdata[index].lastName = data.lastName
+  appdata[index].house = data.house
+  res.status(200).send("updated")
+})
+
+app.post('/delete', function(req, res) {
+  var data = req.body
+  appdata.splice(data.rowData, 1)
+  res.status(200).send("deleted")
+})
+
 app.listen( process.env.PORT || port )
 
 const appdata = [
