@@ -60,6 +60,10 @@ app.post('/delete', function(req, res) {
 
 app.listen( process.env.PORT || port )
 
+const users = [
+  {username: 'janette', password: ''}
+]
+
 const appdata = [
     {
         'firstName': 'Janette',
