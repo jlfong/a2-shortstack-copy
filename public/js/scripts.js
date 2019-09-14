@@ -8,7 +8,12 @@ const login = function (e) {
     'username': username,
     'password': password
   },
+  headers = [
+    {'Authorization': 'Basic ' + encode(username + ":" + password)},
+    {'Content-Type': 'application/json'}
+  ],
   body = JSON.stringify(user)
+  console.log(body)
   fetch('/login', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
