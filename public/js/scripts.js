@@ -217,15 +217,13 @@ const showData = function () {
 }
 
 window.onload = function () {
-  
   fetch( '/test', {
-  method:'POST',
-  credentials: 'include'
-})
-.then( console.log )
-.catch( err => console.error ) 
-    const submitButton = document.getElementById('submitButton')
-    const loginButton = document.getElementById('loginButton')
-    submitButton.onclick = submit
-    loginButton.onclick = login
+    method:'POST',
+    credentials: 'include'
+  }).then( console.log )
+  .catch( err => console.error ) 
+  const submitButton = document.getElementById('submitButton')
+  const loginButton = document.getElementById('loginButton')
+  submitButton.onclick = submit
+  loginButton.onclick = login
 }
