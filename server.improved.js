@@ -75,6 +75,7 @@ app.post('/login',
 
 app.get('/error', function(req, res) {
   console.log('login error')
+  res.send(appdata)
 })
 
 app.get('/login', function(req, res) {
