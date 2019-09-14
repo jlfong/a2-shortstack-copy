@@ -46,7 +46,7 @@ const myLocalStrategy = function( username, password, done ) {
   }
 }
 
-passport.use( new Local( myLocalStrategy ) )
+passport.use( 'local-login', new Local( myLocalStrategy ) )
 passport.initialize()
 
 /*app.post( '/login', passport.authenticate( 'local' ), function( req, res ) {
@@ -59,7 +59,7 @@ passport.initialize()
 )*/
 
 app.post('/login',
-    passport.authenticate('local', {
+    passport.authenticate('local-login', {
         // redirect back to /login
         // if login fails
         failureRedirect: '/login'
