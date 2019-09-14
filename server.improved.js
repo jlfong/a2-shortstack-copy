@@ -47,7 +47,8 @@ const myLocalStrategy = function( username, password, done ) {
   }
 }
 
-passport.use( 'local-login', new Local( myLocalStrategy ) )
+//passport.use( 'local-login', new Local( myLocalStrategy ) )
+passport.use()
 passport.initialize()
 
 /*app.post( '/login', passport.authenticate( 'local' ), function( req, res ) {
