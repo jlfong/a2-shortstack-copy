@@ -21,21 +21,14 @@ const login = function (e) {
   }).then(function (response) {
     if(response.status === 200) {
       document.getElementById('loginform').style.display = "none"
+      document.getElementById('loginerror').style.display = "none"
       document.getElementById('maindisplay').style.display = ""
     }
     else {
       console.log('here')
-      document.getElementById('error').style.display = ""
+      document.getElementById('loginerror').style.display = ""
     }
   })
-  /*fetch('/login', {
-    method: 'POST',
-    headers: { 'Accept': 'application/json' },
-    body,
-    credentials: 'include'
-  }).then(function (response) {
-    console.log(response)
-  })*/
 }
 
 const submit = function (e) {
