@@ -18,7 +18,7 @@ app.use( bodyParser.json() )
 
 app.get('/studentData', (req, res) => {
   console.log("khkjh")
-  res.send('Hello World!');
+  res.send(appdata);
 });
 
 app.post('/submit', function(req, res) {
