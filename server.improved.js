@@ -101,6 +101,7 @@ app.post('/test', function( req, res ) {
 
 app.get('/studentData', (req, res) => {
   let data = db.get('appdata').value()
+  console.log(data)
   res.send(data);
   //res.send(appdata);
 });

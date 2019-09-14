@@ -1,3 +1,25 @@
 {
-  "appdata": []
+  "appdata": [
+    {
+      "firstName": "G",
+      "lastName": "Sarat",
+      "pronouns": "He/Him/His",
+      "values": "ambition",
+      "house": "Slytherin"
+    },
+    {
+      "firstName": "sdg",
+      "lastName": "fhfh",
+      "pronouns": "He/Him/His",
+      "values": "bravery",
+      "house": "Gryffindor"
+    },
+    {
+      "firstName": "Manasi",
+      "lastName": "Danke",
+      "pronouns": "She/Her/Hers",
+      "values": "loyalty",
+      "house": "Hufflepuff"
+    }
+  ]
 }
