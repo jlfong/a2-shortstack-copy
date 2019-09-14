@@ -5,8 +5,16 @@ const http = require('http'),
     mime = require('mime'),
     express = require('express'),
     app = express(),
+    session   = require( 'express-session' ),
+    passport  = require( 'passport' ),
+    Local     = require( 'passport-local' ).Strategy,
+    bodyParser= require( 'body-parser' ),
+
     dir = 'public/',
     port = 3000
+
+app.use( express.static('./') )
+app.use( bodyParser.json() )
 
 const appdata = [
     {
