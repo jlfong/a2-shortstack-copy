@@ -16,6 +16,10 @@ const http = require('http'),
 app.use( express.static('./') )
 app.use( bodyParser.json() )
 
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+
 const appdata = [
     {
         'firstName': 'Janette',
