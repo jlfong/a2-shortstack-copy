@@ -126,7 +126,7 @@ app.post('/submit', function(req, res) {
           data.house = 'Muggle'
       }
     db.get('appdata').push(data).write()
-    appdata.push(data);
+    //appdata.push(data);
     res.status(200).send("Successfully posted ingredient");
 });
 
@@ -140,8 +140,12 @@ app.post('/update', function(req, res) {
 })
 
 app.post('/delete', function(req, res) {
-  var data = req.body
-  appdata.splice(data.rowData, 1)
+    const index = req.body.rowData,
+    indexVal = db.get('appdata['+index+']').value()
+    db.get('appdata').remove(indexVal).write();
+
+  //var data = req.body
+  //appdata.splice(data.rowData, 1)
   res.status(200).send("deleted")
 })
 
