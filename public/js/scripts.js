@@ -197,6 +197,8 @@ const showData = function () {
 }
 
 window.onload = function () {
-    const button = document.querySelector('button')
-    button.onclick = submit
+    const submitButton = document.getElementById('submitButton')
+    const loginButton = document.getElementById('loginButton')
+    submitButton.onclick = submit
+    loginButton.onclick = login
 }

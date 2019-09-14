@@ -11,6 +11,20 @@
         <h1>Create a Harry Potter Character</h1>
         <p>Disclaimer: The Harry Potter universe belongs to J.K. Rowling</p>
         <img src="/images/houseshogwarts.png" alt="Hogwarts Houses" width="50%">
+        <form action="/" method="post">
+          <div>
+            <label>Username:</label>
+            <input type="text" name="username" />
+            <br/>
+          </div>
+          <div>
+            <label>Password:</label>
+              <input type="password" name="password" />
+          </div>
+        <div>
+          <button id="loginButton">Login</button>
+        </div>
+      </form>
     </div>
     <div class="container">
         <form action="">
@@ -65,7 +79,7 @@
                 </div>
             </div>
             <br>
-            <button>Submit</button>
+            <button id="submitButton">Submit</button>
         </form>
         <br>
         <div id="error">**Please fill out the form completely**</div>
