@@ -23,6 +23,7 @@ const users = [
 
 // these are both passed as arugments to the authentication strategy.
 const myLocalStrategy = function( username, password, done ) {
+  console.log('local strategy')
   // find the first item in our users array where the username
   // matches what was sent by the client. nicer to read/write than a for loop!
   const user = users.find( __user => __user.username === username )
@@ -62,14 +63,25 @@ app.post('/login',
     passport.authenticate('local-login', {
         // redirect back to /login
         // if login fails
-        failureRedirect: '/login'
+        failureRedirect: '/error'
     }),
  
     // end up at / if login works
     function (req, res) {
+  console.log('here')
         res.redirect('/');
     }
 );
+
+app.get('/error', function(req, res) {
+  console.log('login error')
+})
+
+app.get('/login', function(req, res) {
+
+        // render the page and pass in any flash data if it exists
+        console.log('login get') 
+    });
 
 passport.serializeUser( ( user, done ) => done( null, user.username ) )
 
