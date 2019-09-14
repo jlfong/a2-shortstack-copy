@@ -50,6 +50,10 @@ tbody:hover tr:hover td {
     display: none;
 }
 
+#afterlogin {
+  
+}
+
 .container {
     display: flex;
     align-items: center;
