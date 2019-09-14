@@ -21,9 +21,6 @@ const db = low( adapter )
 
 db.defaults({ appdata:[] }).write()
 
-app.use(express.static(dir));
-app.use(bodyParser.json());
-
 
 app.use( express.static(dir) )
 app.use(passport.initialize())
@@ -78,16 +75,6 @@ app.post('/login',
     }
 );
 
-app.get('/error', function(req, res) {
-  console.log('login error')
-})
-
-app.get('/login', function(req, res) {
-
-        // render the page and pass in any flash data if it exists
-        console.log('login get') 
-    });
-
 passport.serializeUser( ( user, done ) => done( null, user.username ) )
 
 // "name" below refers to whatever piece of info is serialized in seralizeUser,
@@ -113,7 +100,9 @@ app.post('/test', function( req, res ) {
 })
 
 app.get('/studentData', (req, res) => {
-  res.send(appdata);
+  let data = db.get('appdata').value()
+  res.send(data);
+  //res.send(appdata);
 });
 
 app.post('/submit', function(req, res) {
@@ -135,6 +124,7 @@ app.post('/submit', function(req, res) {
       default:
           data.house = 'Muggle'
       }
+    db.get('appdata').push(data).write()
     appdata.push(data);
     res.status(200).send("Successfully posted ingredient");
 });
