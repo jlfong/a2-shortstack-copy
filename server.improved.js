@@ -49,14 +49,27 @@ const myLocalStrategy = function( username, password, done ) {
 passport.use( new Local( myLocalStrategy ) )
 passport.initialize()
 
-app.post( '/login', passport.authenticate( 'local' ), function( req, res ) {
+/*app.post( '/login', passport.authenticate( 'local' ), function( req, res ) {
   console.log('in login method')
     var data = req.body
     console.log(data)
     //console.log( 'user:', req.username )
     res.json({ status:true })
   }
-)
+)*/
+
+app.post('/login',
+    passport.authenticate('local', {
+        // redirect back to /login
+        // if login fails
+        failureRedirect: '/login'
+    }),
+ 
+    // end up at / if login works
+    function (req, res) {
+        res.redirect('/');
+    }
+);
 
 passport.serializeUser( ( user, done ) => done( null, user.username ) )
 
