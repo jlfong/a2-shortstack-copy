@@ -22,8 +22,24 @@ app.get('/studentData', (req, res) => {
 
 app.post('/submit', function(req, res) {
   console.log(req)
-    var ingredient = req.body;
-    appdata.push(ingredient);
+    var data = req.body;
+    switch (data.values) {
+      case 'bravery':
+          data.house = 'Gryffindor'
+          break
+      case 'loyalty':
+          data.house = 'Hufflepuff'
+          break
+      case 'wisdom':
+          data.house = 'Ravenclaw'
+          break
+      case 'ambition':
+          data.house = 'Slytherin'
+          break
+      default:
+          data.house = 'Muggle'
+      }
+    appdata.push(data);
     res.status(200).send("Successfully posted ingredient");
 });
 
