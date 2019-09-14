@@ -36,6 +36,7 @@ const submit = function (e) {
 
         fetch('/submit', {
             method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
             body 
         }).then(function (response) {})
 
@@ -96,6 +97,7 @@ const updateRow = function (rowIndex) {
     const body = JSON.stringify(json)
     fetch('/update', {
         method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body
     }).then(function(response){
         showData()
@@ -119,6 +121,7 @@ const deleteRow = function (rowIndex) {
     const body = JSON.stringify(rowData);
     fetch('/delete', {
         method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body
     });
     showData();

@@ -17,13 +17,12 @@ app.use( express.static(dir) )
 app.use( bodyParser.json() )
 
 app.get('/studentData', (req, res) => {
-  console.log("khkjh")
   res.send(appdata);
 });
 
 app.post('/submit', function(req, res) {
+  console.log(req)
     var ingredient = req.body;
-    console.log(req.body);
     appdata.push(ingredient);
     res.status(200).send("Successfully posted ingredient");
 });
