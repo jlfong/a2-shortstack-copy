@@ -16,12 +16,17 @@ const login = function (e) {
   console.log(body)
   fetch('/login', {
     method: 'POST',
+    headers: { 'Content-Type': 'application/json'},
+    body
+  })
+  /*fetch('/login', {
+    method: 'POST',
     headers: { 'Accept': 'application/json' },
     body,
     credentials: 'include'
   }).then(function (response) {
     console.log(response)
-  })
+  })*/
 }
 
 const submit = function (e) {

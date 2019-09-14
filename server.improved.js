@@ -14,6 +14,7 @@ const http = require('http'),
     port = 3000
 
 app.use( express.static(dir) )
+app.use(passport.initialize())
 app.use( bodyParser.json() )
 
 const users = [
@@ -47,8 +48,8 @@ const myLocalStrategy = function( username, password, done ) {
   }
 }
 
-//passport.use( 'local-login', new Local( myLocalStrategy ) )
-passport.use()
+passport.use( 'local-login', new Local( myLocalStrategy ) )
+
 passport.initialize()
 
 /*app.post( '/login', passport.authenticate( 'local' ), function( req, res ) {
