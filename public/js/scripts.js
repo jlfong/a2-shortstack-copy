@@ -2,24 +2,20 @@ const login = function (e) {
   e.preventDefault()
   const username = document.getElementById('username').value,
         password = document.getElementById('password').value
+  console.log(username)
+  console.log(password)
   const user = {
     'username': username,
     'password': password
-  }
-  fetch( '/login', {
-      method:'POST',
-      body:JSON.stringify(user),
-      headers: { 'Content-Type': 'application/json' }
-    })
-    .then( res => res.json() )
-    .then( console.log )
-  /*fetch('/login', {
+  },
+  body = JSON.stringify(user)
+  fetch('/login', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body
   }).then(function (response) {
     console.log(response)
-  })*/
+  })
 }
 
 const submit = function (e) {
@@ -221,6 +217,13 @@ const showData = function () {
 }
 
 window.onload = function () {
+  
+  fetch( '/test', {
+  method:'POST',
+  credentials: 'include'
+})
+.then( console.log )
+.catch( err => console.error ) 
     const submitButton = document.getElementById('submitButton')
     const loginButton = document.getElementById('loginButton')
     submitButton.onclick = submit

@@ -50,12 +50,37 @@ passport.use( new Local( myLocalStrategy ) )
 passport.initialize()
 
 app.post( '/login', passport.authenticate( 'local' ), function( req, res ) {
+  console.log('in login method')
     var data = req.body
     console.log(data)
     //console.log( 'user:', req.username )
     res.json({ status:true })
   }
 )
+
+passport.serializeUser( ( user, done ) => done( null, user.username ) )
+
+// "name" below refers to whatever piece of info is serialized in seralizeUser,
+// in this example we're using the username
+passport.deserializeUser( ( username, done ) => {
+  const user = users.find( u => u.username === username )
+  console.log( 'deserializing:', name )
+  
+  if( user !== undefined ) {
+    done( null, user )
+  }else{
+    done( null, false, { message:'user not found; session not restored' })
+  }
+})
+
+app.use( session({ secret:'cats cats cats', resave:false, saveUninitialized:false }) )
+app.use( passport.initialize() )
+app.use( passport.session() )
+
+app.post('/test', function( req, res ) {
+  console.log( 'authenticate with cookie?', req.user )
+  res.json({ status:'success' })
+})
 
 app.get('/studentData', (req, res) => {
   res.send(appdata);
