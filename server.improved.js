@@ -13,12 +13,15 @@ const http = require('http'),
     dir = 'public/',
     port = 3000
 
-app.use( express.static('./') )
+app.use( express.static(dir) )
 app.use( bodyParser.json() )
 
-app.get('/', (req, res) => {
+app.get('/studentData', (req, res) => {
+  console.log("khkjh")
   res.send('Hello World!');
 });
+
+app.listen( process.env.PORT || 3000 )
 
 const appdata = [
     {
@@ -152,4 +155,4 @@ const sendFile = function (response, filename) {
 }
 
 
-server.listen(process.env.PORT || port)
+//server.listen(process.env.PORT || port)
