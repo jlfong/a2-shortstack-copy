@@ -23,7 +23,8 @@ Depending on what they answered for the survey question, their character will be
 The goal of this application is to host a service where users can log into the website and create, edit, and delete their own set of Harry Potter characters.
 New users can create an account.  Some challenges I faced in this assignment was getting the Passport local authentication to work.  I chose to use the 
 Passport local authentication and lowdb database because those were two topics discussed in class.  I decided to use the Wing CSS framework because its framework
-is meant to have a minimalist look and I liked the look of the Wing CSS framework on my application.  I overwrote the table
+is meant to have a minimalist look and I liked the look of the Wing CSS framework on my application.  I didn't overwrite the components from the framework but I
+added more styling I wanted in my style.css file.
 
 The middleware packages I used were: express, express.static, passport, body-parser, cookie-parser, helmet:
 - Express is a middleware and routing web framework that has minimal functionality.  It listens for requests and calls the appropriate functions.

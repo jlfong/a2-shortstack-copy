@@ -20,14 +20,7 @@ const adapter = new FileSync('db.json')
 const db = low( adapter )
 
 const appdata = [
-    {
-        'user': 'janette',
-        'firstName': 'Janette',
-        'lastName': 'Fong',
-        'pronouns': 'She/Her/Hers',
-        'values': 'ambition',
-        'house': 'Slytherin'
-    },
+    {'user': 'janette', 'firstName': 'Janette', 'lastName': 'Fong', 'pronouns': 'She/Her/Hers', 'values': 'ambition', 'house': 'Slytherin'},
     {'user': 'winny', 'firstName': 'Winny', 'lastName': 'Cheng', 'pronouns': 'She/Her/Hers', 'values': 'wisdom', 'house': 'Ravenclaw'},
     {'user': 'janette', 'firstName': 'Jose', 'lastName': 'Li Quiel', 'pronouns': 'He/Him/His', 'values': 'loyalty', 'house': 'Hufflepuff'},
     {'user': 'winny', 'firstName': 'Harry', 'lastName': 'Potter', 'pronouns': 'He/Him/His', 'values': 'bravery', 'house': 'Gryffindor'},
@@ -39,7 +32,6 @@ const users = [
 ]
 
 db.defaults({ appdata: appdata, users: users }).write()
-
 
 app.use( express.static(dir) )
 app.use(helmet())
@@ -55,30 +47,15 @@ app.get('/', function (req, res) {
   console.log('Signed Cookies: ', req.signedCookies)
 })
 
-// these are both passed as arugments to the authentication strategy.
 const myLocalStrategy = function( username, password, done ) {
-  console.log('local strategy')
-  
   const user = db.get('users').value().find( __user => __user.username === username )
-  // find the first item in our users array where the username
-  // matches what was sent by the client. nicer to read/write than a for loop!
-  //const user = users.find( __user => __user.username === username )
-  
-  // if user is undefined, then there was no match for the submitted username
   if( user === undefined ) {
-    /* arguments to done():
-     - an error object (usually returned from database requests )
-     - authentication status
-     - a message / other data to send to client
-    */
     return done( null, false, { message:'user not found' })
-  }else if( user.password === password ) {
-    // we found the user and the password matches!
-    // go ahead and send the userdata... this will appear as request.user
-    // in all express middleware functions.
+  }
+  else if( user.password === password ) {
     return done( null, { username, password })
-  }else{
-    // we found the user but the password didn't match...
+  }
+  else{
     return done( null, false, { message: 'incorrect password' })
   }
 }
@@ -88,13 +65,7 @@ passport.use( 'local-login', new Local( myLocalStrategy ) )
 passport.initialize()
 
 app.post('/login',
-    passport.authenticate('local-login', {
-        // redirect back to /login
-        // if login fails
-        //failureRedirect: '/error'
-    }),
- 
-    // end up at / if login works
+    passport.authenticate('local-login', {}),
     function (req, res) {
         console.log('login works')
         res.redirect('/');
@@ -103,8 +74,6 @@ app.post('/login',
 
 passport.serializeUser( ( user, done ) => done( null, user.username ) )
 
-// "name" below refers to whatever piece of info is serialized in seralizeUser,
-// in this example we're using the username
 passport.deserializeUser( ( username, done ) => {
   const user = users.find( u => u.username === username )
   console.log( 'deserializing:', name )
@@ -165,9 +134,9 @@ app.post('/submit', function(req, res) {
 
 app.post('/update', function(req, res) {
   const index = req.body.index,
-        indexVal = db.get('appdata['+index+']').value()
-  console.log(indexVal.house)
-  db.get('appdata').find(indexVal).assign({
+        newData = db.get('appdata['+index+']').value()
+  console.log(newData.house)
+  db.get('appdata').find(newData).assign({
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     pronouns: req.body.pronouns,
@@ -178,11 +147,8 @@ app.post('/update', function(req, res) {
 
 app.post('/delete', function(req, res) {
     const index = req.body.rowData,
-    indexVal = db.get('appdata['+index+']').value()
-    db.get('appdata').remove(indexVal).write();
-
-  //var data = req.body
-  //appdata.splice(data.rowData, 1)
+    todelete = db.get('appdata['+index+']').value()
+    db.get('appdata').remove(todelete).write();
   res.status(200).send("deleted")
 })
 
