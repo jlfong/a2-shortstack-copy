@@ -133,12 +133,12 @@ app.post('/submit', function(req, res) {
 app.post('/update', function(req, res) {
   const index = req.body.rowData,
         indexVal = db.get('appData['+index+']').value()
-  db.get('appdata').assign({
+  db.get('appdata['+index+']').assign({
     firstName: indexVal.firstName,
     lastName: indexVal.lastName,
     pronouns: indexVal.pronouns,
     house: indexVal.house
-  })
+  }).write()
   /*var data = req.body
   let index = data.index
   appdata[index].firstName = data.firstName

@@ -27,6 +27,27 @@
       "pronouns": "She/Her/Hers",
       "values": "bravery",
       "house": "Gryffindor"
+    },
+    {
+      "firstName": "chrome",
+      "lastName": "dokuro",
+      "pronouns": "She/Her/Hers",
+      "values": "loyalty",
+      "house": "Hufflepuff"
+    },
+    {
+      "firstName": "mukuro",
+      "lastName": "rokudo",
+      "pronouns": "He/Him/His",
+      "values": "ambition",
+      "house": "Slytherin"
+    },
+    {
+      "firstName": "erika",
+      "lastName": "miyajima",
+      "pronouns": "He/Him/His",
+      "values": "bravery",
+      "house": "Gryffindor"
     }
   ]
 }
