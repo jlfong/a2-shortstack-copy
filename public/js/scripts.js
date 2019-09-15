@@ -26,6 +26,8 @@ const cancelRegister = function(e) {
   document.getElementById('usernameRegister').value = ""
   document.getElementById('passwordRegister').value = ""
   document.getElementById('confirmPassword').value = ""
+  document.getElementById('incompleteregister').style.display = "none"
+  document.getElementById('incompleteregister').focus()
 }
 
 const confirmRegister = function(e) {
