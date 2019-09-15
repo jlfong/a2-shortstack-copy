@@ -17,7 +17,7 @@ const FileSync = require('lowdb/adapters/FileSync')
 const adapter = new FileSync('db.json')
 const db = low( adapter )
 
-db.defaults({ appdata:[] }).write()
+db.defaults({ appdata:[], users:[] }).write()
 
 
 app.use( express.static(dir) )
@@ -99,10 +99,12 @@ app.post('/test', function( req, res ) {
 
 app.get('/studentData', (req, res) => {
   let data = db.get('appdata').value()
-  //console.log(data)
   res.send(data);
-  //res.send(appdata);
 });
+
+app.get('/register', (req, res) => {
+  let data = db.get('appdata').value()
+})
 
 app.post('/submit', function(req, res) {
   console.log(req)

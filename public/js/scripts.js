@@ -21,8 +21,21 @@ const confirmRegister = function(e) {
   const username = document.getElementById('usernameRegister').value,
         password = document.getElementById('passwordRegister').value,
         confirmPassword = document.getElementById('confirmPassword').value
-  if(password === confirmPassword) {
+  if(registerCheck(username, password, confirmPassword)) {
     
+  }
+}
+
+function registerCheck(username, password, confirmPassword) {
+  if(password === confirmPassword) {
+    document.getElementById('passwordmismatch').style.display = ""
+    document.getElementById('passwordmismatch').focus()
+    return false
+  }
+  else {
+    document.getElementById('passwordmismatch').style.display = "none"
+    document.getElementById('passwordmismatch').focus()
+    return true
   }
 }
 
