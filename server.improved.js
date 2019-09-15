@@ -19,15 +19,16 @@ const db = low( adapter )
 
 const appdata = [
     {
+        'user': 'janette',
         'firstName': 'Janette',
         'lastName': 'Fong',
         'pronouns': 'She/Her/Hers',
         'values': 'ambition',
         'house': 'Slytherin'
     },
-    {'firstName': 'Winny', 'lastName': 'Cheng', 'pronouns': 'She/Her/Hers', 'values': 'wisdom', 'house': 'Ravenclaw'},
-    {'firstName': 'Jose', 'lastName': 'Li Quiel', 'pronouns': 'He/Him/His', 'values': 'loyalty', 'house': 'Hufflepuff'},
-    {'firstName': 'Harry', 'lastName': 'Potter', 'pronouns': 'He/Him/His', 'values': 'bravery', 'house': 'Gryffindor'},
+    {'user': 'winny', 'firstName': 'Winny', 'lastName': 'Cheng', 'pronouns': 'She/Her/Hers', 'values': 'wisdom', 'house': 'Ravenclaw'},
+    {'user': 'janette', 'firstName': 'Jose', 'lastName': 'Li Quiel', 'pronouns': 'He/Him/His', 'values': 'loyalty', 'house': 'Hufflepuff'},
+    {'user': 'winny', 'firstName': 'Harry', 'lastName': 'Potter', 'pronouns': 'He/Him/His', 'values': 'bravery', 'house': 'Gryffindor'},
 ]
 
 const users = [

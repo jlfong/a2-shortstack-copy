@@ -1,3 +1,5 @@
+let currUser
+
 const homeLogin = function (e) {
   e.preventDefault()
   document.getElementById('loginform').style.display = ""
@@ -70,8 +72,6 @@ const login = function (e) {
   e.preventDefault()
   const username = document.getElementById('username').value,
         password = document.getElementById('password').value
-  console.log(username)
-  console.log(password)
   const user = {
     'username': username,
     'password': password
