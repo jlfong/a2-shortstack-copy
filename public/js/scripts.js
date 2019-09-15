@@ -357,7 +357,8 @@ const logout = function(e) {
   document.getElementById('firstName').value = ""
   document.getElementById('lastName').value = ""
   document.getElementById('inputother').value = ""
-  
+  document.getElementById('he').checked = true
+  document.getElementById('bravery').checked = true
   currUser = ""
 }
 
