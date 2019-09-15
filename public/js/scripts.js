@@ -23,6 +23,9 @@ const cancelRegister = function(e) {
   document.getElementById('duplicateuser').focus()
   document.getElementById('passwordmismatch').style.display = "none"
   document.getElementById('passwordmismatch').focus()
+  document.getElementById('usernameRegister').value = ""
+  document.getElementById('passwordRegister').value = ""
+  document.getElementById('confirmPassword').value = ""
 }
 
 const confirmRegister = function(e) {
@@ -40,47 +43,60 @@ const confirmRegister = function(e) {
 }
 
 function registerCheck(userList, username, password, confirmPassword) {
+    document.getElementById('duplicateuser').style.display = "none"
+    document.getElementById('duplicateuser').focus()
+    document.getElementById('passwordmismatch').style.display = "none"
+    document.getElementById('passwordmismatch').focus()
+    document.getElementById('incompleteregister').style.display = "none"
+    document.getElementById('incompleteregister').focus()
     console.log(userList)
-    let dupUserCheck = false
-    for(let i = 0; i < userList.length; i++) {
-      if(userList[i].username === username) {
-        dupUserCheck = true
-        i = userList.length
-        document.getElementById('duplicateuser').style.display = ""
+    let emptyCheck = false
+    if(username === "" || password === "" || confirmPassword === "") {
+      emptyCheck = true
+      document.getElementById('incompleteregister').style.display = ""
+      document.getElementById('incompleteregister').focus()
+    }
+    if(emptyCheck === false) {
+      document.getElementById('incompleteregister').style.display = "none"
+      document.getElementById('incompleteregister').focus()
+      let dupUserCheck = false
+      for(let i = 0; i < userList.length; i++) {
+        if(userList[i].username === username) {
+          dupUserCheck = true
+          i = userList.length
+          document.getElementById('duplicateuser').style.display = ""
+          document.getElementById('duplicateuser').focus()
+        }
+      }
+      if(dupUserCheck === false) {
+        document.getElementById('duplicateuser').style.display = "none"
         document.getElementById('duplicateuser').focus()
+        if(password != confirmPassword) {
+          document.getElementById('passwordmismatch').style.display = ""
+          document.getElementById('passwordmismatch').focus()
+        }
+        else {
+          document.getElementById('passwordmismatch').style.display = "none"
+          document.getElementById('passwordmismatch').focus()
+          const json = {
+            'username': username,
+            'password': password
+          },
+          body = JSON.stringify(json)
+          fetch('/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body 
+          }).then(function (response) {})
+          document.getElementById('usernameRegister').value = ""
+          document.getElementById('passwordRegister').value = ""
+          document.getElementById('confirmPassword').value = ""
+          document.getElementById('registerform').style.display = "none"
+          document.getElementById('homepage').style.display = ""
+        }
       }
     }
-    console.log("user check: " + dupUserCheck)
-    console.log(password === confirmPassword)
-    if(dupUserCheck == false && password != confirmPassword) {
-      console.log('password mismatch')
-      document.getElementById('duplicateuser').style.display = "none"
-      document.getElementById('duplicateuser').focus()
-      document.getElementById('passwordmismatch').style.display = ""
-      document.getElementById('passwordmismatch').focus()
-    }
-    else if(dupUserCheck === false && password === confirmPassword) {
-      console.log('correct')
-      document.getElementById('passwordmismatch').style.display = "none"
-      document.getElementById('duplicateuser').style.display = "none"
-      document.getElementById('passwordmismatch').focus()
-      document.getElementById('duplicateuser').focus()
-      const json = {
-        'username': username,
-        'password': password
-      },
-      body = JSON.stringify(json)
-      fetch('/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body 
-      }).then(function (response) {})
-      document.getElementById('usernameRegister').value = ""
-      document.getElementById('passwordRegister').value = ""
-      document.getElementById('confirmPassword').value = ""
-      document.getElementById('registerform').style.display = "none"
-      document.getElementById('homepage').style.display = ""
-    }
+    
   
 }
 
@@ -89,6 +105,8 @@ const cancelLogin = function(e) {
   document.getElementById('homepage').style.display = ""
   document.getElementById('loginform').style.display = "none"
   document.getElementById('loginerror').style.display = "none"
+  document.getElementById('username').value = ""
+  document.getElementById('password').value = ""
 }
 
 const login = function (e) {
@@ -113,6 +131,8 @@ const login = function (e) {
       currUser = username
       document.getElementById('currentuser').innerText = "Hello " + currUser
       document.getElementById('usertable').innerText = currUser + "'s Characters:"
+      document.getElementById('username').value = ""
+      document.getElementById('password').value = ""
       showData()
     }
     else {
@@ -334,8 +354,10 @@ const logout = function(e) {
   e.preventDefault()
   document.getElementById('maindisplay').style.display = "none"
   document.getElementById('homepage').style.display = ""
-  document.getElementById('username').value = ""
-  document.getElementById('password').value = ""
+  document.getElementById('firstName').value = ""
+  document.getElementById('lastName').value = ""
+  document.getElementById('inputother').value = ""
+  
   currUser = ""
 }
 
