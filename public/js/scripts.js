@@ -40,7 +40,7 @@ const confirmRegister = function(e) {
 }
 
 function registerCheck(username, password, confirmPassword) {
-  /*let userList;
+  let userList;
   fetch('/register', {
         method: 'GET'
     }).then(function(response) {
@@ -48,16 +48,21 @@ function registerCheck(username, password, confirmPassword) {
     }).then(function (users) {
         userList = users
       console.log(users)
-    })*/
-  //console.log(userList)
-  if(password != confirmPassword) {
+    })
+  if(userList.contain(username)) {
+    document.getElementById('duplicateuser').style.display = ""
+    document.getElementById('duplicateuser').focus()
+  }
+  else if(password != confirmPassword) {
     document.getElementById('passwordmismatch').style.display = ""
     document.getElementById('passwordmismatch').focus()
     return false
   }
   else {
     document.getElementById('passwordmismatch').style.display = "none"
+    document.getElementById('duplicateuser').style.display = "none"
     document.getElementById('passwordmismatch').focus()
+    document.getElementById('duplicateuser').focus()
     return true
   }
 }

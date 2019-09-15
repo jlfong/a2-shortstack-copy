@@ -47,10 +47,10 @@ app.use( bodyParser.json() )
 const myLocalStrategy = function( username, password, done ) {
   console.log('local strategy')
   
-  const user = db.get('users').find(username)
+  const user = db.get('users').value().find( __user => __user.username === username )
   // find the first item in our users array where the username
   // matches what was sent by the client. nicer to read/write than a for loop!
-  const user = users.find( __user => __user.username === username )
+  //const user = users.find( __user => __user.username === username )
   
   // if user is undefined, then there was no match for the submitted username
   if( user === undefined ) {
