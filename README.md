@@ -39,8 +39,5 @@ The middleware packages I used were: express, express.static, passport, body-par
 error checking to ensure that the username is not already in the database, passwords match, and the form is filled out completely.
 
 ### Design/Evaluation Achievements
-- **Animated Title Text**: For the home page, I wanted to add an animation to make it
-- **Colored Rows (Design)**: To add on to what I stated in the technical aspect, I wanted to display the rows in these colors so the user can easily differentiate
-which characters are in which Houses.
-- **Table Row Hovering**: I wanted to implement a way where the user's mouse can interact with the table, so I added in an aspect when the mouse hovers over a row,
-the row will highlight the text to alert the user which row their mouse is on.  (Got insipration from [here](https://codepen.io/jackrugile/pen/EyABe)).
+- **Animated Title Text**: For the home page, I wanted to add an animation to make the website less boring.  I referenced this moving letters library [here](https://tobiasahlin.com/moving-letters/)
+-
