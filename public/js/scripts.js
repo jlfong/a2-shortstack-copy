@@ -14,6 +14,9 @@ const register = function(e) {
 
 const cancelRegister = function(e) {
   e.preventDefault()
+  document.getElementById('usernameRegister').value = ""
+  document.getElementById('passwordRegister').value = ""
+  document.getElementById('confirmPassword').value = ""
   document.getElementById('registerform').style.display = "none"
   document.getElementById('homepage').style.display = ""
   document.getElementById('duplicateuser').style.display = "none"
@@ -72,6 +75,9 @@ function registerCheck(userList, username, password, confirmPassword) {
         headers: { 'Content-Type': 'application/json' },
         body 
       }).then(function (response) {})
+      document.getElementById('usernameRegister').value = ""
+      document.getElementById('passwordRegister').value = ""
+      document.getElementById('confirmPassword').value = ""
       document.getElementById('registerform').style.display = "none"
       document.getElementById('homepage').style.display = ""
     }
