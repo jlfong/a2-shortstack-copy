@@ -65,3 +65,7 @@ tbody:hover tr:hover td {
 .formdisplay {
     positon: absolute;
 }
+
+.ml3 {
+  font-size: 3.5em;
+}

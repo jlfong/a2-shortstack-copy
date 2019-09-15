@@ -385,3 +385,7 @@ window.onload = function () {
   confirmRegisterButton.onclick = confirmRegister
   logoutButton.onclick = logout
 }
+
+// Wrap every letter in a span
+var textWrapper = document.querySelector('.ml3');
+textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
