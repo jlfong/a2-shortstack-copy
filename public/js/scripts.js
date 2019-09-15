@@ -23,50 +23,48 @@ const confirmRegister = function(e) {
   const username = document.getElementById('usernameRegister').value,
         password = document.getElementById('passwordRegister').value,
         confirmPassword = document.getElementById('confirmPassword').value
-  if(registerCheck(username, password, confirmPassword)) {
-    const json = {
-                'username': username,
-                'password': password
-            },
-        body = JSON.stringify(json)
-        fetch('/register', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body 
-        }).then(function (response) {})
-    document.getElementById('registerform').style.display = "none"
-    document.getElementById('homepage').style.display = ""
-  }
-}
-
-function registerCheck(username, password, confirmPassword) {
-  let userList
-  console.log("username: " + username)
   fetch('/register', {
         method: 'GET'
     }).then(function(response) {
         return response.json()
-    }).then(function (users) {
-        userList = users
+    }).then(function (userList) {
+        registerCheck(userList, username, password, confirmPassword)
     })
-  console.log("register user" + userList)
-    if(userList.includes(username)) {
-          document.getElementById('duplicateuser').style.display = ""
-          document.getElementById('duplicateuser').focus()
-          return false
-        }
-        else if(password != confirmPassword) {
-          document.getElementById('passwordmismatch').style.display = ""
-          document.getElementById('passwordmismatch').focus()
-        return false
-        }
-        else {
-          document.getElementById('passwordmismatch').style.display = "none"
-          document.getElementById('duplicateuser').style.display = "none"
-          document.getElementById('passwordmismatch').focus()
-          document.getElementById('duplicateuser').focus()
-          return true
-        }
+}
+
+function registerCheck(userList, username, password, confirmPassword) {
+    console.log(userList)
+    let dupUserCheck = false
+    for(let i = 0; i < userList.length; i++) {
+      if(userList[i].username === username) {
+        document.getElementById('duplicateuser').style.display = ""
+        document.getElementById('duplicateuser').focus()
+        dupUserCheck = true
+        i = userList.length
+      }
+    }
+    if(dupUserCheck === false && password === confirmPassword) {
+      document.getElementById('passwordmismatch').style.display = "none"
+      document.getElementById('duplicateuser').style.display = "none"
+      document.getElementById('passwordmismatch').focus()
+      document.getElementById('duplicateuser').focus()
+      const json = {
+        'username': username,
+        'password': password
+      },
+      body = JSON.stringify(json)
+      fetch('/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body 
+      }).then(function (response) {})
+      document.getElementById('registerform').style.display = "none"
+      document.getElementById('homepage').style.display = ""
+    }
+    else {
+      document.getElementById('passwordmismatch').style.display = ""
+      document.getElementById('passwordmismatch').focus()
+    }
   
 }
 
