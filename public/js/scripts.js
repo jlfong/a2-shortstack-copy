@@ -27,7 +27,17 @@ const confirmRegister = function(e) {
 }
 
 function registerCheck(username, password, confirmPassword) {
-  if(password === confirmPassword) {
+  let userList;
+  fetch('/register', {
+        method: 'GET'
+    }).then(function(response) {
+        return response.json()
+    }).then(function (users) {
+        userList = users
+      console.log(users)
+    })
+  //console.log(userList)
+  if(password != confirmPassword) {
     document.getElementById('passwordmismatch').style.display = ""
     document.getElementById('passwordmismatch').focus()
     return false

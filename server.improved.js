@@ -17,17 +17,30 @@ const FileSync = require('lowdb/adapters/FileSync')
 const adapter = new FileSync('db.json')
 const db = low( adapter )
 
-db.defaults({ appdata:[], users:[] }).write()
-
-
-app.use( express.static(dir) )
-app.use(passport.initialize())
-app.use( bodyParser.json() )
+const appdata = [
+    {
+        'firstName': 'Janette',
+        'lastName': 'Fong',
+        'pronouns': 'She/Her/Hers',
+        'values': 'ambition',
+        'house': 'Slytherin'
+    },
+    {'firstName': 'Winny', 'lastName': 'Cheng', 'pronouns': 'She/Her/Hers', 'values': 'wisdom', 'house': 'Ravenclaw'},
+    {'firstName': 'Jose', 'lastName': 'Li Quiel', 'pronouns': 'He/Him/His', 'values': 'loyalty', 'house': 'Hufflepuff'},
+    {'firstName': 'Harry', 'lastName': 'Potter', 'pronouns': 'He/Him/His', 'values': 'bravery', 'house': 'Gryffindor'},
+]
 
 const users = [
   {username: 'janette', password: 'janette1'},
   {username: 'winny', password: 'winny1'}
 ]
+
+db.defaults({ appdata: appdata, users: users }).write()
+
+
+app.use( express.static(dir) )
+app.use(passport.initialize())
+app.use( bodyParser.json() )
 
 // these are both passed as arugments to the authentication strategy.
 const myLocalStrategy = function( username, password, done ) {
@@ -99,11 +112,12 @@ app.post('/test', function( req, res ) {
 
 app.get('/studentData', (req, res) => {
   let data = db.get('appdata').value()
-  res.send(data);
+  res.send(data)
 });
 
 app.get('/register', (req, res) => {
-  let data = db.get('appdata').value()
+  let data = db.get('users').value()
+  res.send(data)
 })
 
 app.post('/submit', function(req, res) {
@@ -153,19 +167,6 @@ app.post('/delete', function(req, res) {
 })
 
 app.listen( process.env.PORT || port )
-
-const appdata = [
-    {
-        'firstName': 'Janette',
-        'lastName': 'Fong',
-        'pronouns': 'She/Her/Hers',
-        'values': 'ambition',
-        'house': 'Slytherin'
-    },
-    {'firstName': 'Winny', 'lastName': 'Cheng', 'pronouns': 'She/Her/Hers', 'values': 'wisdom', 'house': 'Ravenclaw'},
-    {'firstName': 'Jose', 'lastName': 'Li Quiel', 'pronouns': 'He/Him/His', 'values': 'loyalty', 'house': 'Hufflepuff'},
-    {'firstName': 'Harry', 'lastName': 'Potter', 'pronouns': 'He/Him/His', 'values': 'bravery', 'house': 'Gryffindor'},
-]
 
 const sendData = function (response, studentData) {
     response.end(JSON.stringify(studentData));
