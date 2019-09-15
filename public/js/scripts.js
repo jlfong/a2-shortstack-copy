@@ -82,6 +82,7 @@ const cancelLogin = function(e) {
   e.preventDefault()
   document.getElementById('homepage').style.display = ""
   document.getElementById('loginform').style.display = "none"
+  document.getElementById('loginerror').style.display = "none"
 }
 
 const login = function (e) {

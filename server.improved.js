@@ -8,6 +8,7 @@ const http = require('http'),
     Local     = require( 'passport-local' ).Strategy,
     bodyParser= require( 'body-parser' ),
     cookieParser = require('cookie-parser'),
+    helmet = require('helmet'),
 
     dir = 'public/',
     port = 3000
@@ -41,6 +42,7 @@ db.defaults({ appdata: appdata, users: users }).write()
 
 
 app.use( express.static(dir) )
+app.use(helmet())
 app.use(passport.initialize())
 app.use( bodyParser.json() )
 app.use(cookieParser())
