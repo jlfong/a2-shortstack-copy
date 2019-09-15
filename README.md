@@ -1,20 +1,21 @@
-Assignment 2 - Short Stack: Basic Two-tier Web Application using HTML/CSS/JS and Node.js  
+Assignment 3 - Persistence: Two-tier Web Application with Flat File Database, Express server, and CSS template
 ===
 ---
 
-## Create a Harry Potter Character
+## Create a Harry Potter Character (Version 2)
 Janette Fong
-[https://a2-jlfong.glitch.me/](https://a2-jlfong.glitch.me/)
+[https://a3-jlfong.glitch.me/](https://a3-jlfong.glitch.me/)
 
 The user can create their own Harry Potter character by filling out the form.  Once they submitted their information, a table with current added characters is displayed.
 Depending on what they answered for the survey question, their character will be sorted into one of the Hogwarts Houses (Gryffindor, Hufflepuff, Ravenclaw, Slytherin).
 
 ## Requirements Met
-- Server
-- Results (table)
+- Server (with Express)
+- Results (table for an associated user)
+- Functionality to add, edit, and delete data for an associated user
 - HTML Form (divs and table)
-- Server logic (sorted House)
-- CSS selectors (element, id, and class)
+- Persistent data storage (lowdb)
+- CSS framework ([Wing]())
 - CSS positioning (horizontal: table, side by side: title/image and form)
 - CSS in external stylesheet
 - Javascript
