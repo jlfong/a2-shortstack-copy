@@ -302,6 +302,8 @@ const logout = function(e) {
   e.preventDefault()
   document.getElementById('maindisplay').style.display = "none"
   document.getElementById('homepage').style.display = ""
+  document.getElementById('username').value = ""
+  document.getElementById('password').value = ""
   currUser = ""
 }
 
