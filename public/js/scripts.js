@@ -40,31 +40,34 @@ const confirmRegister = function(e) {
 }
 
 function registerCheck(username, password, confirmPassword) {
-  let userList;
+  let userList
+  console.log("username: " + username)
   fetch('/register', {
         method: 'GET'
     }).then(function(response) {
         return response.json()
     }).then(function (users) {
         userList = users
-      console.log(users)
     })
-  if(userList.contain(username)) {
-    document.getElementById('duplicateuser').style.display = ""
-    document.getElementById('duplicateuser').focus()
-  }
-  else if(password != confirmPassword) {
-    document.getElementById('passwordmismatch').style.display = ""
-    document.getElementById('passwordmismatch').focus()
-    return false
-  }
-  else {
-    document.getElementById('passwordmismatch').style.display = "none"
-    document.getElementById('duplicateuser').style.display = "none"
-    document.getElementById('passwordmismatch').focus()
-    document.getElementById('duplicateuser').focus()
-    return true
-  }
+  console.log("register user" + userList)
+    if(userList.includes(username)) {
+          document.getElementById('duplicateuser').style.display = ""
+          document.getElementById('duplicateuser').focus()
+          return false
+        }
+        else if(password != confirmPassword) {
+          document.getElementById('passwordmismatch').style.display = ""
+          document.getElementById('passwordmismatch').focus()
+        return false
+        }
+        else {
+          document.getElementById('passwordmismatch').style.display = "none"
+          document.getElementById('duplicateuser').style.display = "none"
+          document.getElementById('passwordmismatch').focus()
+          document.getElementById('duplicateuser').focus()
+          return true
+        }
+  
 }
 
 const cancelLogin = function(e) {
