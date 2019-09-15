@@ -10,6 +10,22 @@ const register = function(e) {
   document.getElementById('homepage').style.display = "none"
 }
 
+const cancelRegister = function(e) {
+  e.preventDefault()
+  document.getElementById('registerform').style.display = "none"
+  document.getElementById('homepage').style.display = ""
+}
+
+const confirmRegister = function(e) {
+  e.preventDefault()
+  const username = document.getElementById('usernameRegister').value,
+        password = document.getElementById('passwordRegister').value,
+        confirmPassword = document.getElementById('confirmPassword').value
+  if(password === confirmPassword) {
+    
+  }
+}
+
 const cancelLogin = function(e) {
   e.preventDefault()
   document.getElementById('homepage').style.display = ""
@@ -255,9 +271,13 @@ window.onload = function () {
   const submitButton = document.getElementById('submitButton')
   const loginButton = document.getElementById('loginButton')
   const registerButton = document.getElementById('register')
+  const cancelRegisterButton = document.getElementById('cancelRegister')
+  const confirmRegisterButton = document.getElementById('confirmRegister')
   homeLoginButton.onclick = homeLogin
   submitButton.onclick = submit
   loginButton.onclick = login
   cancelLoginButton.onclick = cancelLogin
   registerButton.onclick = register
+  cancelRegisterButton.onclick = cancelRegister
+  confirmRegisterButton.onclick = confirmRegister
 }
