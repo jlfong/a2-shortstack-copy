@@ -95,6 +95,13 @@ const login = function (e) {
     else {
       document.getElementById('loginerror').style.display = ""
     }
+    fetch('/register', {
+      method: 'GET'
+    }).then(function(response) {
+      return response.json()
+    }).then(function (users) {
+      console.log(users)
+    })
   })
 }
 

@@ -46,6 +46,8 @@ app.use( bodyParser.json() )
 // these are both passed as arugments to the authentication strategy.
 const myLocalStrategy = function( username, password, done ) {
   console.log('local strategy')
+  
+  const user = db.get('users').find(username)
   // find the first item in our users array where the username
   // matches what was sent by the client. nicer to read/write than a for loop!
   const user = users.find( __user => __user.username === username )
