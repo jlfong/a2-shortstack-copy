@@ -9,14 +9,6 @@
       "house": "Slytherin"
     },
     {
-      "user": "winny",
-      "firstName": "Winny",
-      "lastName": "Cheng",
-      "pronouns": "She/Her/Hers",
-      "values": "wisdom",
-      "house": "Ravenclaw"
-    },
-    {
       "user": "janette",
       "firstName": "Jose",
       "lastName": "Li Quiel",
@@ -25,19 +17,11 @@
       "house": "Hufflepuff"
     },
     {
-      "user": "winny",
-      "firstName": "Harry",
-      "lastName": "Potter",
-      "pronouns": "He/Him/His",
-      "values": "bravery",
-      "house": "Gryffindor"
-    },
-    {
       "user": "janette",
       "firstName": "Vandana",
       "lastName": "Anand",
       "pronouns": "She/Her/Hers",
-      "values": "loyalty",
+      "values": "wisdom",
       "house": "Ravenclaw"
     }
   ],

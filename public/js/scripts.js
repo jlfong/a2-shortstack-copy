@@ -322,8 +322,8 @@ const genTable = function (studentList, editIndex) {
             newLine += ('<td align="center">' + houseColor + '<input id="lastName' + i + '" type="text" value="' + currentStudent.lastName + '"> </div></td>\n');
             newLine += ('<td align="center">' + houseColor + '<input id="pronouns' + i + '" type="text" value="' + currentStudent.pronouns + '"> </div></td>\n');
             newLine += ('<td align="center">' + houseColor + '<input id="house' + i + '" type="text" value="' + currentStudent.house + '"></div></td>\n');
-            newLine += ('<td align="center">' + houseColor + '<button id="update' + i + '" onclick="updateRow(' + i + ')"> Update </button></div></td>\n');
-            newLine += ('<td align="center">' + houseColor + '<button id="delete' + i + '" onclick="deleteRow(' + i + ')"> X </button></div></td>\n');
+            newLine += ('<td align="center">' + houseColor + '<button id="update' + i + '" class="outline" onclick="updateRow(' + i + ')"> Update </button></div></td>\n');
+            newLine += ('<td align="center">' + houseColor + '<button id="delete' + i + '" class="outline" onclick="deleteRow(' + i + ')"> X </button></div></td>\n');
             newLine += '</tr>';
         }
         else {
@@ -331,8 +331,8 @@ const genTable = function (studentList, editIndex) {
             newLine += ('<td align="center">' + houseColor + currentStudent.lastName + '</div></td>\n');
             newLine += ('<td align="center">' + houseColor + currentStudent.pronouns + '</td>\n');
             newLine += ('<td align="center">' + houseColor+ currentStudent.house + '</td>\n');
-            newLine += ('<td align="center">' + houseColor + '<button id="' + i + '" onclick="editRow(' + i + ')"> Edit </button></td>\n');
-            newLine += ('<td align="center">' + houseColor + '<button id="' + i + '" onclick="deleteRow(' + i + ')"> X </button></td>\n');
+            newLine += ('<td align="center">' + houseColor + '<button id="' + i + '" class="outline" onclick="editRow(' + i + ')"> Edit </button></td>\n');
+            newLine += ('<td align="center">' + houseColor + '<button id="' + i + '" class="outline" onclick="deleteRow(' + i + ')"> X </button></td>\n');
             newLine += '</div>' + '</tr>';
         }
 
@@ -389,15 +389,16 @@ window.onload = function () {
 }
 
 // Wrap every letter in a span
-var textWrapper = document.querySelector('.ml3');
+let textWrapper = document.querySelector('.ml3');
 textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
 
+var anime
 anime.timeline({loop: true})
   .add({
     targets: '.ml3 .letter',
     opacity: [0,1],
     easing: "easeInOutQuad",
-    duration: 2250,
+    duration: 500,
     delay: (el, i) => 150 * (i+1)
   }).add({
     targets: '.ml3',
