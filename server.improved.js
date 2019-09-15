@@ -1,7 +1,5 @@
 const http = require('http'),
     fs = require('fs'),
-    // IMPORTANT: you must run `npm install` in the directory for this assignment
-    // to install the mime library used in the following line of code
     mime = require('mime'),
     express = require('express'),
     app = express(),
@@ -126,7 +124,6 @@ app.post('/submit', function(req, res) {
           data.house = 'Muggle'
       }
     db.get('appdata').push(data).write()
-    //appdata.push(data);
     res.status(200).send("Successfully posted ingredient");
 });
 
@@ -140,12 +137,6 @@ app.post('/update', function(req, res) {
     pronouns: req.body.pronouns,
     house: req.body.house
   }).write()
-  console.log(db.get('appdata').find(indexVal).house)
-  /*var data = req.body
-  let index = data.index
-  appdata[index].firstName = data.firstName
-  appdata[index].lastName = data.lastName
-  appdata[index].house = data.house*/
   res.status(200).send("updated")
 })
 
