@@ -55,6 +55,11 @@
       "pronouns": "He/Him/His",
       "values": "bravery",
       "house": "Gryffindor"
+    },
+    {
+      "username": "test",
+      "password": "test",
+      "house": "Muggle"
     }
   ],
   "users": []

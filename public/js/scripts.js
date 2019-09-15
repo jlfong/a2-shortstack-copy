@@ -22,12 +22,23 @@ const confirmRegister = function(e) {
         password = document.getElementById('passwordRegister').value,
         confirmPassword = document.getElementById('confirmPassword').value
   if(registerCheck(username, password, confirmPassword)) {
-    
+    const json = {
+                'username': username,
+                'password': password
+            },
+        body = JSON.stringify(json)
+        fetch('/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body 
+        }).then(function (response) {})
+    document.getElementById('registerform').style.display = "none"
+    document.getElementById('homepage').style.display = ""
   }
 }
 
 function registerCheck(username, password, confirmPassword) {
-  let userList;
+  /*let userList;
   fetch('/register', {
         method: 'GET'
     }).then(function(response) {
@@ -35,7 +46,7 @@ function registerCheck(username, password, confirmPassword) {
     }).then(function (users) {
         userList = users
       console.log(users)
-    })
+    })*/
   //console.log(userList)
   if(password != confirmPassword) {
     document.getElementById('passwordmismatch').style.display = ""

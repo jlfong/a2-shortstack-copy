@@ -120,6 +120,10 @@ app.get('/register', (req, res) => {
   res.send(data)
 })
 
+app.post('/register', (req, res) => {
+  
+})
+
 app.post('/submit', function(req, res) {
   console.log(req)
     var data = req.body;
