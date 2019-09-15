@@ -32,7 +32,27 @@
         </div>
       </form>
   <div id="loginerror" style="display: none">**Incorrect username or password**</div>
-<div id="maindisplay" class="twocolumn" style="display: none">
+  <form id="registerform" action="/" method="post" style="display: none">
+          <div>
+            <label>Username:</label>
+            <input id="usernameRegister" type="text" name="username" />
+            <br/>
+          </div>
+          <div>
+            <label>Password:</label>
+              <input id="passwordRegister" type="password" name="password" />
+            <br/>
+          </div>
+          <div>
+            <label>Confirm Password:</label>
+            <input id="confirmPassword" type="password" name="password" />
+        </div>
+        <div>
+          <button id="confirmRegister">Confirm</button>
+          <button id="cancelRegister">Cancel</button>
+        </div>
+  </form>
+  <div id="maindisplay" class="twocolumn" style="display: none">
     <div class="container">
         <h1>Create a Harry Potter Character</h1>
         <p>Disclaimer: The Harry Potter universe belongs to J.K. Rowling</p>

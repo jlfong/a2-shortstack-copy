@@ -4,6 +4,12 @@ const homeLogin = function (e) {
   document.getElementById('homepage').style.display = "none"
 }
 
+const register = function(e) {
+  e.preventDefault()
+  document.getElementById('registerform').style.display = ""
+  document.getElementById('homepage').style.display = "none"
+}
+
 const cancelLogin = function(e) {
   e.preventDefault()
   document.getElementById('homepage').style.display = ""
@@ -249,6 +255,7 @@ window.onload = function () {
   const submitButton = document.getElementById('submitButton')
   const loginButton = document.getElementById('loginButton')
   const signinButton = document.getElementById('signin')
+  const registerButton = document.getElementById('register')
   homeLoginButton.onclick = homeLogin
   submitButton.onclick = submit
   loginButton.onclick = login
