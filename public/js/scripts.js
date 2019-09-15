@@ -1,16 +1,13 @@
 const homeLogin = function (e) {
   e.preventDefault()
-  showLogin()
-}
-
-const showLogin = function() {
   document.getElementById('loginform').style.display = ""
   document.getElementById('homepage').style.display = "none"
 }
 
-const cancelLogin = function() {
+const cancelLogin = function(e) {
+  e.preventDefault()
   document.getElementById('homepage').style.display = ""
-  document.getElementById('')
+  document.getElementById('loginform').style.display = "none"
 }
 
 const login = function (e) {
@@ -248,9 +245,12 @@ window.onload = function () {
   }).then( console.log )
   .catch( err => console.error ) 
   const homeLoginButton = document.getElementById('homelogin')
+  const cancelLoginButton = document.getElementById('cancelLogin')
   const submitButton = document.getElementById('submitButton')
   const loginButton = document.getElementById('loginButton')
+  const signinButton = document.getElementById('signin')
   homeLoginButton.onclick = homeLogin
   submitButton.onclick = submit
   loginButton.onclick = login
+  cancelLoginButton.onclick = cancelLogin
 }
