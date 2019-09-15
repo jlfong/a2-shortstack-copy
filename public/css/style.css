@@ -50,7 +50,7 @@ tbody:hover tr:hover td {
     display: none;
 }
 
-.container {
+.boxcontainer {
     display: flex;
     align-items: center;
     flex-direction: column;
