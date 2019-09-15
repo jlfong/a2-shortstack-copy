@@ -40,4 +40,3 @@ error checking to ensure that the username is not already in the database, passw
 
 ### Design/Evaluation Achievements
 - **Animated Title Text**: For the home page, I wanted to add an animation to make the website less boring.  I referenced this moving letters library [here](https://tobiasahlin.com/moving-letters/)
--
