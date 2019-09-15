@@ -23,7 +23,7 @@ Depending on what they answered for the survey question, their character will be
 The goal of this application is to host a service where users can log into the website and create, edit, and delete their own set of Harry Potter characters.
 New users can create an account.  Some challenges I faced in this assignment was getting the Passport local authentication to work.  I chose to use the 
 Passport local authentication and lowdb database because those were two topics discussed in class.  I decided to use the Wing CSS framework because its framework
-is meant to have a minimalist look and I liked the look of the Wing CSS framework on my application.
+is meant to have a minimalist look and I liked the look of the Wing CSS framework on my application.  I overwrote the table
 
 The middleware packages I used were: express, express.static, passport, body-parser, cookie-parser, helmet:
 - Express is a middleware and routing web framework that has minimal functionality.  It listens for requests and calls the appropriate functions.
@@ -37,6 +37,8 @@ The middleware packages I used were: express, express.static, passport, body-par
 - **Logout Functionality**: The user has an option to log out to return to the home page.
 - **Error Checking**: The login form has error checking to ensure that users fill out the login form completely before logging in.  The registration form has
 error checking to ensure that the username is not already in the database, passwords match, and the form is filled out completely.
+- **Used more than 5 middleware packages**: As detailed above, I used more than five middleware packages.
 
 ### Design/Evaluation Achievements
 - **Animated Title Text**: For the home page, I wanted to add an animation to make the website less boring.  I referenced this moving letters library [here](https://tobiasahlin.com/moving-letters/)
+- **Set background image**: In the last version, I used a plain background.  I decided to set the background of the application to an image to make it more aesthically pleasing.
