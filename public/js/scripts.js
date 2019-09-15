@@ -254,10 +254,10 @@ window.onload = function () {
   const cancelLoginButton = document.getElementById('cancelLogin')
   const submitButton = document.getElementById('submitButton')
   const loginButton = document.getElementById('loginButton')
-  const signinButton = document.getElementById('signin')
   const registerButton = document.getElementById('register')
   homeLoginButton.onclick = homeLogin
   submitButton.onclick = submit
   loginButton.onclick = login
   cancelLoginButton.onclick = cancelLogin
+  registerButton.onclick = register
 }
