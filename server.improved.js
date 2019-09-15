@@ -121,11 +121,12 @@ app.get('/register', (req, res) => {
 })
 
 app.post('/register', (req, res) => {
-  
+  var data = req.body
+  db.get('users').push(data).write()
+  res.status(200).send("Added user to database")
 })
 
 app.post('/submit', function(req, res) {
-  console.log(req)
     var data = req.body;
     switch (data.values) {
       case 'bravery':
@@ -144,7 +145,7 @@ app.post('/submit', function(req, res) {
           data.house = 'Muggle'
       }
     db.get('appdata').push(data).write()
-    res.status(200).send("Successfully posted ingredient");
+    res.status(200).send("Successfully added new character");
 });
 
 app.post('/update', function(req, res) {

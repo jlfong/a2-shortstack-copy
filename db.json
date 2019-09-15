@@ -62,5 +62,10 @@
       "house": "Muggle"
     }
   ],
-  "users": []
+  "users": [
+    {
+      "username": "test",
+      "password": "test"
+    }
+  ]
 }
