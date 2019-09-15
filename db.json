@@ -9,10 +9,10 @@
     },
     {
       "firstName": "jojo",
-      "lastName": "pp",
+      "lastName": "pop",
       "pronouns": "He/Him/His",
-      "values": "loyalty",
-      "house": "Hufflepuff"
+      "values": "ambition",
+      "house": "Slytherin"
     },
     {
       "firstName": "jojo",
@@ -20,6 +20,34 @@
       "pronouns": "He/Him/His",
       "values": "ambition",
       "house": "Slytherin"
+    },
+    {
+      "firstName": "jojo",
+      "lastName": "pop",
+      "pronouns": "He/Him/His",
+      "values": "ambition",
+      "house": "Slytherin"
+    },
+    {
+      "firstName": "ashley",
+      "lastName": "kishibay",
+      "pronouns": "She/Her/Hers",
+      "values": "loyalty",
+      "house": "Hufflepuff"
+    },
+    {
+      "firstName": "hgfgh",
+      "lastName": "mngg",
+      "pronouns": "He/Him/His",
+      "values": "bravery",
+      "house": "Gryffindor"
+    },
+    {
+      "firstName": "hgfgh",
+      "lastName": "mngg",
+      "pronouns": "He/Him/His",
+      "values": "bravery",
+      "house": "Gryffindor"
     }
   ]
 }
