@@ -7,6 +7,7 @@ const http = require('http'),
     passport  = require( 'passport' ),
     Local     = require( 'passport-local' ).Strategy,
     bodyParser= require( 'body-parser' ),
+    cookieParser = require('cookie-parser'),
 
     dir = 'public/',
     port = 3000
@@ -42,6 +43,15 @@ db.defaults({ appdata: appdata, users: users }).write()
 app.use( express.static(dir) )
 app.use(passport.initialize())
 app.use( bodyParser.json() )
+app.use(cookieParser())
+
+app.get('/', function (req, res) {
+  // Cookies that have not been signed
+  console.log('Cookies: ', req.cookies)
+
+  // Cookies that have been signed
+  console.log('Signed Cookies: ', req.signedCookies)
+})
 
 // these are both passed as arugments to the authentication strategy.
 const myLocalStrategy = function( username, password, done ) {
