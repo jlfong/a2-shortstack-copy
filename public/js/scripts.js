@@ -87,6 +87,9 @@ const login = function (e) {
       document.getElementById('loginform').style.display = "none"
       document.getElementById('loginerror').style.display = "none"
       document.getElementById('maindisplay').style.display = ""
+      currUser = username
+      document.getElementById('currentuser').innerText = "Hello " + currUser
+      document.getElementById('usertable').innerText = currUser + "'s Characters:"
       showData()
     }
     else {
@@ -124,6 +127,7 @@ const submit = function (e) {
         }
 
         const json = {
+                'user': currUser,
                 'firstName': firstName,
                 'lastName': lastName,
                 'pronouns': preferredPronouns,
@@ -307,6 +311,7 @@ window.onload = function () {
   const registerButton = document.getElementById('register')
   const cancelRegisterButton = document.getElementById('cancelRegister')
   const confirmRegisterButton = document.getElementById('confirmRegister')
+  const logoutButton = document.getElementById('logout')
   homeLoginButton.onclick = homeLogin
   submitButton.onclick = submit
   loginButton.onclick = login
@@ -314,4 +319,5 @@ window.onload = function () {
   registerButton.onclick = register
   cancelRegisterButton.onclick = cancelRegister
   confirmRegisterButton.onclick = confirmRegister
+  logoutButton.onclick = logout
 }
