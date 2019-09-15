@@ -1,0 +1,46 @@
+{
+  "appdata": [
+    {
+      "user": "janette",
+      "firstName": "Janette",
+      "lastName": "Fong",
+      "pronouns": "She/Her/Hers",
+      "values": "ambition",
+      "house": "Slytherin"
+    },
+    {
+      "user": "winny",
+      "firstName": "Winny",
+      "lastName": "Cheng",
+      "pronouns": "She/Her/Hers",
+      "values": "wisdom",
+      "house": "Ravenclaw"
+    },
+    {
+      "user": "janette",
+      "firstName": "Jose",
+      "lastName": "Li Quiel",
+      "pronouns": "He/Him/His",
+      "values": "loyalty",
+      "house": "Hufflepuff"
+    },
+    {
+      "user": "winny",
+      "firstName": "Harry",
+      "lastName": "Potter",
+      "pronouns": "He/Him/His",
+      "values": "bravery",
+      "house": "Gryffindor"
+    }
+  ],
+  "users": [
+    {
+      "username": "janette",
+      "password": "janette1"
+    },
+    {
+      "username": "winny",
+      "password": "winny1"
+    }
+  ]
+}
