@@ -23,6 +23,7 @@ const login = function (e) {
       document.getElementById('loginform').style.display = "none"
       document.getElementById('loginerror').style.display = "none"
       document.getElementById('maindisplay').style.display = ""
+      showData()
     }
     else {
       console.log('here')
