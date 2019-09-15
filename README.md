@@ -25,7 +25,10 @@ New users can create an account.  Some challenges I faced in this assignment was
 Passport local authentication and lowdb database because those were two topics discussed in class.  I decided to use the Wing CSS framework because its framework
 is meant to have a minimalist look and I liked the look of the Wing CSS framework on my application.
 
-The middleware packages I used were: express, express.static, passport,
+The middleware packages I used were: express, express.static, passport, body-parser, cookie-parser, helmet:
+- Express is a middleware and routing web framework that has minimal functionality.  It listens for requests and calls the appropriate functions.
+- Express.static serves static files from the path where your application is drawing files from.
+- Passport 
 
 ## Technical Achievements
 - **Colored Rows (Technical)**: Depending on which House the character is in, the row will be colored in the House's main color (Gryffindor is red, 

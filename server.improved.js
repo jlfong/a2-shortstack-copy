@@ -187,27 +187,3 @@ app.post('/delete', function(req, res) {
 })
 
 app.listen( process.env.PORT || port )
-
-const sendData = function (response, studentData) {
-    response.end(JSON.stringify(studentData));
-}
-
-
-const sendFile = function (response, filename) {
-    const type = mime.getType(filename)
-    fs.readFile(filename, function (err, content) {
-
-        // if the error = null, then we've loaded the file successfully
-      if (err === null) {
-        response.writeHeader(200, {'Content-Type': type})
-        response.end(content)
-      }
-      else {
-        response.writeHeader(404)
-        response.end('404 Error: File Not Found')
-      }
-    })
-}
-
-
-//server.listen(process.env.PORT || port)
