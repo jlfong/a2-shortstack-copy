@@ -14,7 +14,7 @@ const http = require('http'),
 const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')
  
-const adapter = new FileSync('db.json')
+const adapter = new FileSync('db1.json')
 const db = low( adapter )
 
 const appdata = [
