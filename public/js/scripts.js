@@ -93,7 +93,6 @@ const login = function (e) {
       showData()
     }
     else {
-      console.log('here')
       document.getElementById('loginerror').style.display = ""
     }
   })
@@ -243,7 +242,8 @@ const genTable = function (studentList, editIndex) {
 
     for (let i = 0; i < studentList.length; i++) {
         const currentStudent = studentList[i];
-        let newLine = '<tr>\n';
+        if(currentStudent.user === currUser) {
+          let newLine = '<tr>\n';
         var houseColor;
         if(currentStudent.house === 'Gryffindor' || currentStudent.house === 'gryffindor') {
             currentStudent.house = 'Gryffindor'
@@ -285,6 +285,8 @@ const genTable = function (studentList, editIndex) {
         }
 
         studentTable.innerHTML += newLine
+        }
+        
     }
 }
 
