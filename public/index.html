@@ -54,12 +54,13 @@
   </form>
   <div id="duplicateuser" style="display: none">**Username already taken**</div>
   <div id="passwordmismatch" style="display: none">**Passwords don't match**</div>
-  <div id="maindisplay" class="twocolumn" style="display: none">
-    <div class="container">
+  <div id="maindisplay" style="display: none">
+    <div class="twocolumn">
+      <div class="container">
         <h1>Create a Harry Potter Character</h1>
         <p id="currentuser"></p>
-      <button id="logout">Logout</button>
         <img src="/images/houseshogwarts.png" alt="Hogwarts Houses" width="50%">
+      <button id="logout">Logout</button>
     </div>
     <div class="container">
         <form action="">
@@ -118,12 +119,15 @@
         </form>
         <br>
         <div id="error">**Please fill out the form completely**</div>
+      </div>
+    </div>
+    
+    <div class="container">
+      <p id="usertable"></p>
+      <table id="HogwartsStudents"></table>
     </div>
 </div>
-<div class="container">
-    <p id="usertable"></p>
-    <table id="HogwartsStudents"></table>
-</div>
+
 <script src="js/scripts.js"></script>
 </body>
 </html>

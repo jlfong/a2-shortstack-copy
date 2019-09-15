@@ -298,6 +298,13 @@ const showData = function () {
     })
 }
 
+const logout = function(e) {
+  e.preventDefault()
+  document.getElementById('maindisplay').style.display = "none"
+  document.getElementById('homepage').style.display = ""
+  currUser = ""
+}
+
 window.onload = function () {
   fetch( '/test', {
     method:'POST',
