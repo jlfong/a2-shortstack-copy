@@ -16,6 +16,10 @@ const cancelRegister = function(e) {
   e.preventDefault()
   document.getElementById('registerform').style.display = "none"
   document.getElementById('homepage').style.display = ""
+  document.getElementById('duplicateuser').style.display = "none"
+  document.getElementById('duplicateuser').focus()
+  document.getElementById('passwordmismatch').style.display = "none"
+  document.getElementById('passwordmismatch').focus()
 }
 
 const confirmRegister = function(e) {
@@ -37,13 +41,23 @@ function registerCheck(userList, username, password, confirmPassword) {
     let dupUserCheck = false
     for(let i = 0; i < userList.length; i++) {
       if(userList[i].username === username) {
-        document.getElementById('duplicateuser').style.display = ""
-        document.getElementById('duplicateuser').focus()
         dupUserCheck = true
         i = userList.length
+        document.getElementById('duplicateuser').style.display = ""
+        document.getElementById('duplicateuser').focus()
       }
     }
-    if(dupUserCheck === false && password === confirmPassword) {
+    console.log("user check: " + dupUserCheck)
+    console.log(password === confirmPassword)
+    if(dupUserCheck == false && password != confirmPassword) {
+      console.log('password mismatch')
+      document.getElementById('duplicateuser').style.display = "none"
+      document.getElementById('duplicateuser').focus()
+      document.getElementById('passwordmismatch').style.display = ""
+      document.getElementById('passwordmismatch').focus()
+    }
+    else if(dupUserCheck === false && password === confirmPassword) {
+      console.log('correct')
       document.getElementById('passwordmismatch').style.display = "none"
       document.getElementById('duplicateuser').style.display = "none"
       document.getElementById('passwordmismatch').focus()
@@ -60,10 +74,6 @@ function registerCheck(userList, username, password, confirmPassword) {
       }).then(function (response) {})
       document.getElementById('registerform').style.display = "none"
       document.getElementById('homepage').style.display = ""
-    }
-    else {
-      document.getElementById('passwordmismatch').style.display = ""
-      document.getElementById('passwordmismatch').focus()
     }
   
 }
