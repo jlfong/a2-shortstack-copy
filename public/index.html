@@ -7,12 +7,16 @@
     <link rel="stylesheet" href="https://unpkg.com/wingcss"/>
 </head>
 <body>
-  <div class="container">
+  <div id="homepage" class="container">
         <h1>Create a Harry Potter Character</h1>
         <p>Disclaimer: The Harry Potter universe belongs to J.K. Rowling</p>
-        <img src="/images/houseshogwarts.png" alt="Hogwarts Houses" width="50%">
+        <img src="/images/houseshogwarts.png" alt="Hogwarts Houses" width="25%">
+    <div class="twocolumn">
+      <button id="homelogin">Login</button>
+      <button id="register">Register</button>
     </div>
-  <form id="loginform" action="/" method="post">
+  </div>
+  <form id="loginform" action="/" method="post" style="display: none">
           <div>
             <label>Username:</label>
             <input id="username" type="text" name="username" />
@@ -23,8 +27,8 @@
               <input id="password" type="password" name="password" />
           </div>
         <div>
-          <button id="loginButton">Login</button>
-          <button id="newuserButton">New User</button>
+          <button id="loginButton">Sign In</button>
+          <button id="cancelLogin">Cancel</button>
         </div>
       </form>
   <div id="loginerror" style="display: none">**Incorrect username or password**</div>

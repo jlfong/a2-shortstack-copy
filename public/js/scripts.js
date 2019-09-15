@@ -1,3 +1,18 @@
+const homeLogin = function (e) {
+  e.preventDefault()
+  showLogin()
+}
+
+const showLogin = function() {
+  document.getElementById('loginform').style.display = ""
+  document.getElementById('homepage').style.display = "none"
+}
+
+const cancelLogin = function() {
+  document.getElementById('homepage').style.display = ""
+  document.getElementById('')
+}
+
 const login = function (e) {
   e.preventDefault()
   const username = document.getElementById('username').value,
@@ -232,8 +247,10 @@ window.onload = function () {
     credentials: 'include'
   }).then( console.log )
   .catch( err => console.error ) 
+  const homeLoginButton = document.getElementById('homelogin')
   const submitButton = document.getElementById('submitButton')
   const loginButton = document.getElementById('loginButton')
+  homeLoginButton.onclick = homeLogin
   submitButton.onclick = submit
   loginButton.onclick = login
 }
