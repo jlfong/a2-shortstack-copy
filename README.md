@@ -12,14 +12,20 @@ Depending on what they answered for the survey question, their character will be
 ## Requirements Met
 - Server (with Express)
 - Results (table for an associated user)
-- Functionality to add, edit, and delete data for an associated user
-- HTML Form (divs and table)
+- Form/Entry to add, edit, and delete data for an associated user
+- HTML input tags (input, radio buttons, password, etc)
+- Passport local middleware authentication
 - Persistent data storage (lowdb)
-- CSS framework ([Wing]())
-- CSS positioning (horizontal: table, side by side: title/image and form)
-- CSS in external stylesheet
+- CSS framework ([Wing](https://kbrsh.github.io/wing/))
 - Javascript
-- Node.js
+- At least five middleware (express, express.static, passport, body-parser, cookie-parser, helmet)
+
+The goal of this application is to host a service where users can log into the website and create, edit, and delete their own set of Harry Potter characters.
+New users can create an account.  Some challenges I faced in this assignment was getting the Passport local authentication to work.  I chose to use the 
+Passport local authentication and lowdb database because those were two topics discussed in class.  I decided to use the Wing CSS framework because its framework
+is meant to have a minimalist look and I liked the look of the Wing CSS framework on my application.
+
+The middleware packages I used were: express, express.static, passport,
 
 ## Technical Achievements
 - **Colored Rows (Technical)**: Depending on which House the character is in, the row will be colored in the House's main color (Gryffindor is red, 
