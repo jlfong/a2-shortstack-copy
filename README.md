@@ -28,16 +28,18 @@ is meant to have a minimalist look and I liked the look of the Wing CSS framewor
 The middleware packages I used were: express, express.static, passport, body-parser, cookie-parser, helmet:
 - Express is a middleware and routing web framework that has minimal functionality.  It listens for requests and calls the appropriate functions.
 - Express.static serves static files from the path where your application is drawing files from.
-- Passport 
+- Passport authenticates requests (for logging in, for example) through strategies.  I used the Local strategy since it was discussed in class.
+- Body-parser parses incoming request bodies before those requests are handled.
+- Cookie-parser parses cookie headers and populates cookies.
+- Helmet helps secure the application by setting various HTTP headers.
 
 ## Technical Achievements
-- **Colored Rows (Technical)**: Depending on which House the character is in, the row will be colored in the House's main color (Gryffindor is red, 
-Hufflepuff is yellow, Ravenclaw is blue, Slytherin is green).
-- **Editing the Table / Field Checking**: The user is able to edit a character's information from the table.  If their House is changed to a different Housee, the row will change its 
-color to match the new House.  If the value for the new House ends up being invalid input, the table will list them as a Muggle (a regular human being with no magical talent).
-If their first name, last name, or pronouns are edited to be empty, the table will list those fields as redacted.
+- **Logout Functionality**: The user has an option to log out to return to the home page.
+- **Error Checking**: The login form has error checking to ensure that users fill out the login form completely before logging in.  The registration form has
+error checking to ensure that the username is not already in the database, passwords match, and the form is filled out completely.
 
 ### Design/Evaluation Achievements
+- **Animated Title Text**: For the home page, I wanted to add an animation to make it
 - **Colored Rows (Design)**: To add on to what I stated in the technical aspect, I wanted to display the rows in these colors so the user can easily differentiate
 which characters are in which Houses.
 - **Table Row Hovering**: I wanted to implement a way where the user's mouse can interact with the table, so I added in an aspect when the mouse hovers over a row,
