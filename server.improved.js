@@ -131,8 +131,9 @@ app.post('/submit', function(req, res) {
 });
 
 app.post('/update', function(req, res) {
-  const index = req.body.rowData,
+  const index = req.body.index,
         indexVal = db.get('appData['+index+']').value()
+  console.log(indexVal)
   db.get('appdata['+index+']').assign({
     firstName: indexVal.firstName,
     lastName: indexVal.lastName,
